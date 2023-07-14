@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-observation",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Node-RED node that processes data from the node-red-contrib-simple-spc node",
   "main": "observation.js",
   "scripts": {
