@@ -1,0 +1,172 @@
+[
+    {
+        "id": "bd69fe48f64c63f6",
+        "type": "tab",
+        "label": "observation",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "39edd117de6fc1af",
+        "type": "modbus-read",
+        "z": "bd69fe48f64c63f6",
+        "name": "SDM 120 Voltage",
+        "topic": "",
+        "showStatusActivities": true,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "1",
+        "dataType": "InputRegister",
+        "adr": "0",
+        "quantity": "2",
+        "rate": "1",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "b69d19ed.84d768",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "def912e643b784e4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "def912e643b784e4",
+        "type": "energy-meter",
+        "z": "bd69fe48f64c63f6",
+        "name": "",
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "31d1660bf710cd72"
+            ]
+        ]
+    },
+    {
+        "id": "31d1660bf710cd72",
+        "type": "spc",
+        "z": "bd69fe48f64c63f6",
+        "name": "Simple SPC",
+        "limitMultiplier": "2.66",
+        "timer": "10",
+        "x": 510,
+        "y": 180,
+        "wires": [
+            [
+                "25a621b192f7e976",
+                "b6e2635842ac9d63"
+            ]
+        ]
+    },
+    {
+        "id": "084485ef498cdd29",
+        "type": "debug",
+        "z": "bd69fe48f64c63f6",
+        "name": "debug 232",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 950,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "25a621b192f7e976",
+        "type": "observation",
+        "z": "bd69fe48f64c63f6",
+        "name": "",
+        "sampleWindowSize": "5",
+        "outOfControlLimit": "2",
+        "spikeLimit": "1",
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "084485ef498cdd29"
+            ]
+        ],
+        "icon": "node-red/sort.svg"
+    },
+    {
+        "id": "f75a43740ed16889",
+        "type": "comment",
+        "z": "bd69fe48f64c63f6",
+        "name": "Monitor this voltage",
+        "info": "",
+        "x": 130,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b6e2635842ac9d63",
+        "type": "msg-counter",
+        "z": "bd69fe48f64c63f6",
+        "name": "Bufferstack.IO msg counter",
+        "x": 740,
+        "y": 260,
+        "wires": [
+            [
+                "c8dc2e0359b0ee71"
+            ]
+        ]
+    },
+    {
+        "id": "c8dc2e0359b0ee71",
+        "type": "debug",
+        "z": "bd69fe48f64c63f6",
+        "name": "debug 233",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 990,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b69d19ed.84d768",
+        "type": "modbus-client",
+        "name": "Energy Meter",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "10.10.100.254",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB0",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": "1",
+        "commandDelay": "30",
+        "clientTimeout": "2000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "5000",
+        "parallelUnitIdsAllowed": false
+    }
+]
