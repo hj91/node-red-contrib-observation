@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-observation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A Node-RED node that processes data from the node-red-contrib-simple-spc node",
   "main": "observation.js",
   "scripts": {
@@ -26,6 +26,11 @@
     "url": "https://github.com/hj91/node-red-contrib-observation/issues"
   },
   "homepage": "https://github.com/hj91/node-red-contrib-observation#readme",
+  "node-red": {
+    "nodes": {
+      "observation": "observation.js"
+    }
+  },
   "dependencies": {
     "fft-js": "0.0.12",
     "node-red-contrib-simple-spc": "^2.0.0"
